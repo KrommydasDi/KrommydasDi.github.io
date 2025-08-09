@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dimitrios Krommydas — Physics</title>
+  <style>
+    :root{
+      --bg:#000; --text:#fff; --muted:#cfcfcf; --accent:#9ad1ff;
+      --maxw:980px;
+    }
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell;}
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{padding:64px 16px 24px; border-bottom:1px solid #222;}
+    .wrap{max-width:var(--maxw); margin:0 auto}
+    h1{font-size:2rem; margin:0 0 6px}
+    .subtitle{color:var(--muted); margin:0}
+    nav{padding:12px 16px; border-bottom:1px solid #222; position:sticky; top:0; background:#000f; backdrop-filter:saturate(150%) blur(6px)}
+    nav a{margin-right:18px}
+    section{padding:36px 16px; border-bottom:1px solid #111}
+    h2{margin:0 0 12px; font-size:1.3rem}
+    ul{margin:8px 0 0 1.25rem}
+    .grid{display:grid; gap:16px}
+    @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+    .card{border:1px solid #222; border-radius:14px; padding:16px; background:#070707}
+    img{max-width:100%; height:auto; border-radius:10px; display:block}
+    .footer{padding:24px 16px; color:#aaa}
+    .btn{display:inline-block; border:1px solid #333; padding:8px 12px; border-radius:10px}
+    .muted{color:var(--muted)}
+    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Dimitrios Krommydas</h1>
+      <p class="subtitle">Postdoctoral Researcher — Soft & Active Matter Physics</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#about">About / CV</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="about">
+      <h2>About / CV</h2>
+      <p>I'm a physicist working on hydrodynamics, active matter, and pattern formation in living systems.</p>
+      <p><a class="btn" href="CV.pdf">Download CV (PDF)</a> <span class="muted">← upload a file named <span class="mono">CV.pdf</span> to the repo root</span></p>
+    </section>
+
+    <section id="research">
+      <h2>Research</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Active nematic flows</h3>
+          <p>Brief 2–3 sentence summary of the problem, method, and key result.</p>
+          <p><a href="#">Preprint / DOI</a></p>
+        </div>
+        <div class="card">
+          <h3>Fingerprint morphogenesis</h3>
+          <p>Short description of your modeling/experiments and why it matters.</p>
+          <p><a href="#">Project page / Slides</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Publications (selected)</h2>
+      <ul>
+        <li><strong>YourName</strong>, Coauthors — “Paper title.” <em>Journal</em> (Year). <a href="#">DOI</a> / <a href="#">arXiv</a></li>
+        <li><strong>YourName</strong>, Coauthors — “Another paper.” <em>Journal</em> (Year). <a href="#">DOI</a></li>
+      </ul>
+    </section>
+
+    <section id="awards">
+      <h2>Awards & Grants</h2>
+      <ul>
+        <li>2025 — Rubicon Grant — NWO</li>
+        <li>2024 — Fellowship / Award — Organization</li>
+      </ul>
+    </section>
+
+    <section id="gallery">
+      <h2>Media / Gallery</h2>
+      <div class="grid">
+        <figure class="card">
+          <img src="images/simulation1.jpg" alt="Active flow simulation snapshot">
+          <figcaption class="muted">Active flow simulation.</figcaption>
+        </figure>
+        <figure class="card">
+          <img src="images/microscopy1.jpg" alt="Microscopy image of system under study">
+          <figcaption class="muted">Microscopy image.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Email: <span class="mono">firstname [at] institution [dot] edu</span></p>
+      <p>Links: <a href="#">Google Scholar</a> · <a href="#">ORCID</a> · <a href="#">GitHub</a> · <a href="#">LinkedIn</a></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">© <span id="y"></span> Dimitrios Krommydas</div>
+    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  </footer>
+</body>
+</html>
