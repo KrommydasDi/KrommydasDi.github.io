@@ -3,97 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dimitrios Krommydas — Physics</title>
-  <style>
-    :root{
-      --bg:#000; --text:#fff; --muted:#cfcfcf; --accent:#9ad1ff;
-      --maxw:980px;
-    }
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell;}
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
-    header{padding:64px 16px 24px; border-bottom:1px solid #222;}
-    .wrap{max-width:var(--maxw); margin:0 auto}
-    h1{font-size:2rem; margin:0 0 6px}
-    .subtitle{color:var(--muted); margin:0}
-    nav{padding:12px 16px; border-bottom:1px solid #222; position:sticky; top:0; background:#000f; backdrop-filter:saturate(150%) blur(6px)}
-    nav a{margin-right:18px}
-    section{padding:36px 16px; border-bottom:1px solid #111}
-    h2{margin:0 0 12px; font-size:1.3rem}
-    h3{margin:18px 0 8px; font-size:1.05rem; color:var(--muted)}
-    ul{margin:8px 0 0 1.25rem}
-    .grid{display:grid; gap:16px}
-    @media(min-width:800px){.grid{grid-template-columns:1fr 1fr}}
-    .card{border:1px solid #222; border-radius:14px; padding:16px; background:#070707}
-    img{max-width:100%; height:auto; border-radius:10px; display:block}
-    .footer{padding:24px 16px; color:#aaa}
-    .btn{display:inline-block; border:1px solid #333; padding:8px 12px; border-radius:10px}
-    .muted{color:var(--muted)}
-    .mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
-
-    /* Header layout */
-    .header-flex {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .header-flex img {
-      max-width: 150px;
-      border-radius: 50%;
-    }
-
-    /* Home tiles */
-    .tile-grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
-      gap:16px;
-    }
-    .tile{
-      display:block;
-      border:1px solid #222; border-radius:14px; overflow:hidden; background:#070707;
-      text-decoration:none; color:var(--text);
-    }
-    .tile img{
-      width:100%; height:120px; object-fit:cover; border-radius:0; display:block;
-    }
-    .tile .tile-body{ padding:12px 14px; }
-    .tile .tile-title{ margin:0; font-weight:600; }
-    .tile-plain{
-      display:flex; align-items:center; justify-content:center;
-      height:120px; font-weight:700; font-size:1.6rem; color:#111; background:linear-gradient(180deg,#9ad1ff,#59a8e8);
-    }
-
-    /* Awards layout (image to the right, tiny) */
-    .awards-list { list-style: none; padding-left: 0; margin: 0; }
-    .awards-list li{
-      display: grid;
-      grid-template-columns: 1fr auto;   /* text left, image right */
-      align-items: center;
-      gap: 14px;
-      padding: 14px 16px;
-      margin: 14px 0;
-      border: 1px solid #222;
-      border-radius: 12px;
-      background: #070707;
-    }
-    .award-thumb{
-      width: 5em;          /* base size */
-      height: auto;
-      max-width: none;     /* override global img max-width */
-      border: 1px solid #222;
-      border-radius: 6px;
-    }
-    /* larger/smaller variants */
-    .award-thumb--large{ width: 15em; }
-    .award-thumb--medium{ width: 7.5em; }
-    @media (max-width: 480px){
-      .award-thumb{ width: 4em; }
-      .award-thumb--large{ width: 8em; }
-      .award-thumb--medium{ width: 6em; }
-    }
-  </style>
+  <title>Home — Dimitrios Krommydas</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
@@ -110,143 +21,39 @@
     </div>
   </header>
 
-  <nav>
-    <div class="wrap">
-      <a href="#home">Home</a>
-      <a href="#about">About / CV</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#awards">Awards</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <nav><div class="wrap">
+    <a href="index.html">Home</a>
+    <a href="cv.html">CV</a>
+    <a href="publications.html">Publications</a>
+    <a href="awards.html">Awards</a>
+  </div></nav>
 
-  <!-- NEW HOME SECTION -->
   <main class="wrap">
     <section id="home">
       <h2>Home</h2>
-      <p class="muted">Welcome — jump straight to the parts you need:</p>
-      <div class="tile-grid">
-        <!-- CV tile -->
-        <a class="tile" href="#about">
-          <div class="tile-plain">CV</div>
-          <div class="tile-body"><p class="tile-title">About / CV</p></div>
-        </a>
-        <!-- Publications tile -->
-        <a class="tile" href="#publications">
-          <img src="PRLcover%202023.png" alt="Publications thumbnail">
-          <div class="tile-body"><p class="tile-title">Publications</p></div>
-        </a>
-        <!-- Awards tile -->
-        <a class="tile" href="#awards">
-          <img src="LION_award.png" alt="Awards thumbnail">
-          <div class="tile-body"><p class="tile-title">Awards</p></div>
-        </a>
+      <p>
+        I study hydrodynamics, active matter, and pattern formation in living systems.
+        On this page you’ll find a brief overview and a few videos from my work.
+        Use the top bar to navigate to my CV, publications, and awards.
+      </p>
+
+      <!-- Example videos — replace with your own YouTube IDs or MP4s -->
+      <div class="video" style="margin-top:16px;">
+        <!-- YouTube: replace VIDEO_ID -->
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Research video 1" allowfullscreen></iframe>
       </div>
-    </section>
 
-    <section id="about">
-      <h2>About / CV</h2>
-      <p>I'm a physicist working on hydrodynamics, active matter, and pattern formation in living systems.</p>
-      <p><a class="btn" href="CV.pdf">Download CV (PDF)</a> <span class="muted">← upload a file named <span class="mono">CV.pdf</span> to the repo root</span></p>
-    </section>
-
-    <section id="research">
-      <h2>Research</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Active nematic flows</h3>
-          <p>Brief 2–3 sentence summary of the problem, method, and key result.</p>
-          <p><a href="#">Preprint / DOI</a></p>
-        </div>
-        <div class="card">
-          <h3>Fingerprint morphogenesis</h3>
-          <p>Short description of your modeling/experiments and why it matters.</p>
-          <p><a href="#">Project page / Slides</a></p>
-        </div>
+      <div class="video" style="margin-top:16px;">
+        <!-- MP4 hosted in your repo (upload to /videos/sim1.mp4 and change the src) -->
+        <video controls src="videos/sim1.mp4"></video>
       </div>
-    </section>
-
-    <section id="publications">
-      <h2>Publications</h2>
-      <p class="muted">† Equal contributions · * Alphabetic order</p>
-
-      <h3>Quantum Gravity &amp; Astronomy</h3>
-      <ul>
-        <li><strong>D. Krommydas</strong> — “Violations of the Null Energy Condition in QFT and their Implications.” <em>arXiv</em> (2018). <a href="https://arxiv.org/abs/1806.00107" target="_blank" rel="noopener">arXiv</a></li>
-        <li><strong>*B. Freivogel</strong>, <strong>*D. Krommydas</strong> — “The Smeared Null Energy Condition.” <em>Journal of High Energy Physics</em> (2018). <a href="https://link.springer.com/article/10.1007/JHEP12(2018)067" target="_blank" rel="noopener">JHEP</a></li>
-        <li><strong>*B. Freivogel</strong>, <strong>*D. Krommydas</strong>, <strong>*E.-A. Kontou</strong> — “The Return of the Singularities: Applications of the Smeared Null Energy Condition.” <em>SciPost Physics</em> (2022). <a href="https://scipost.org/10.21468/SciPostPhys.13.1.001" target="_blank" rel="noopener">SciPost</a></li>
-        <li><strong>E.-A. Kontou</strong>, <strong>B. Freivogel</strong>, <strong>D. Krommydas</strong> — “A singularity theorem for evaporating black holes.” <em>The Sixteenth Marcel Grossmann Meeting</em> (2023). <a href="https://www.worldscientific.com/doi/10.1142/9789811269776_0064" target="_blank" rel="noopener">Proceedings</a></li>
-        <li><strong>*D. Krommydas</strong>, <strong>*F. Scardigli</strong> — “Exponential distance relation (aka Titius–Bode law) in extra solar planetary systems.” <em>Monthly Notices of the Royal Astronomical Society</em> (2025). <a href="https://academic.oup.com/mnras/article/538/4/2730/8071238" target="_blank" rel="noopener">MNRAS</a></li>
-      </ul>
-
-      <h3>Soft, Active &amp; Living Matter</h3>
-      <ul>
-        <li><strong>†J.-M. Armengol-Collado</strong>, <strong>†L. N. Carenza</strong>, <strong>†J. Eckert</strong>, <strong>†D. Krommydas</strong>, L. Giomi — “Epithelia are multiscale active liquid crystals.” <em>Nature Physics</em> (2023). <a href="https://www.nature.com/articles/s41567-023-02179-0" target="_blank" rel="noopener">Nature Physics</a> · news article: <a href="https://www.nature.com/articles/s41567-023-02167-4" target="_blank" rel="noopener"><strong>Nature News &amp; Views</strong></a></li>
-        <li><strong>D. Krommydas</strong>, L. N. Carenza, L. Giomi — “Hydrodynamic Enhancement of p-atic Defect Dynamics.” <em>Physical Review Letters</em> (2023). <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.098101" target="_blank" rel="noopener">PRL</a></li>
-        <li><strong>D. Krommydas</strong>, L. N. Carenza, L. Giomi — “Collective epithelial migration is mediated by the unbinding of hexatic defects.” <em>eLife</em> (2025). <a href="https://doi.org/10.7554/eLife.105397.1" target="_blank" rel="noopener">eLife</a></li>
-        <li>L. Puggioni, <strong>D. Krommydas</strong>, L. Giomi — “Collective migration and topological phase transitions in confluent epithelia.” <em>arXiv</em> (2025), <em>under review</em>. <a href="https://arxiv.org/abs/2502.09554" target="_blank" rel="noopener">arXiv</a></li>
-        <li>L. N. Carenza, <strong>†J.-M. Armengol-Collado</strong>, <strong>†D. Krommydas</strong>, L. Giomi — “Quasi long-ranged order in two-dimensional active liquid crystals.” <em>Physical Review Letters</em> (2025). <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.128304" target="_blank" rel="noopener">PRL</a></li>
-      </ul>
-    </section>
-
-    <section id="awards">
-      <h2>Awards & Grants</h2>
-      <ul class="awards-list">
-        <li>
-          <div class="award-text">
-            Cover of <a href="https://journals.aps.org/prl/issues/130/9" target="_blank" rel="noopener">Physical Review Letters, Volume 130, Issue 9</a> (2023)
-          </div>
-          <img src="PRLcover%202023.png" alt="PRL Cover 2023" class="award-thumb award-thumb--medium">
-        </li>
-
-        <li>
-          <div class="award-text">
-            <a href="https://www.universiteitleiden.nl/en/news/2024/03/and-the-winner-is%E2%80%A6-results-of-the-annual-physics-image-competition" target="_blank" rel="noopener">LION Image Award</a>, Leiden University (2024)
-          </div>
-          <img src="LION_award.png" alt="LION Image Award 2024" class="award-thumb award-thumb--large">
-        </li>
-
-        <li>
-          <div class="award-text">
-            Cover of <a href="https://journals.aps.org/prl/issues/134/12" target="_blank" rel="noopener">Physical Review Letters, Volume 134, Issue 12</a> (2025)
-          </div>
-          <img src="PRL%202025.png" alt="PRL Cover 2025" class="award-thumb award-thumb--medium">
-        </li>
-
-        <li>
-          <div class="award-text">
-            <a href="https://www.nwo.nl/en/researchprogrammes/rubicon/awarded-grants/awarded-rubicon-grants-2025" target="_blank" rel="noopener">Rubicon Grant</a>, NWO (2025&ndash;2027)
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <section id="gallery">
-      <h2>Media / Gallery</h2>
-      <div class="grid">
-        <figure class="card">
-          <img src="images/simulation1.jpg" alt="Active flow simulation snapshot">
-          <figcaption class="muted">Active flow simulation.</figcaption>
-        </figure>
-        <figure class="card">
-          <img src="images/microscopy1.jpg" alt="Microscopy image of system under study">
-          <figcaption class="muted">Microscopy image.</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <span class="mono">firstname [at] institution [dot] edu</span></p>
-      <p>Links: <a href="#">Google Scholar</a> · <a href="#">ORCID</a> · <a href="#">GitHub</a> · <a href="#">LinkedIn</a></p>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">© <span id="y"></span> Dimitrios Krommydas</div>
-    <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <footer class="footer"><div class="wrap">
+    © <span id="y"></span> Dimitrios Krommydas
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
   </footer>
 </body>
 </html>
