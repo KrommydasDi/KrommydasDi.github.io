@@ -44,6 +44,27 @@
       border-radius: 50%;
     }
 
+    /* Home tiles */
+    .tile-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+      gap:16px;
+    }
+    .tile{
+      display:block;
+      border:1px solid #222; border-radius:14px; overflow:hidden; background:#070707;
+      text-decoration:none; color:var(--text);
+    }
+    .tile img{
+      width:100%; height:120px; object-fit:cover; border-radius:0; display:block;
+    }
+    .tile .tile-body{ padding:12px 14px; }
+    .tile .tile-title{ margin:0; font-weight:600; }
+    .tile-plain{
+      display:flex; align-items:center; justify-content:center;
+      height:120px; font-weight:700; font-size:1.6rem; color:#111; background:linear-gradient(180deg,#9ad1ff,#59a8e8);
+    }
+
     /* Awards layout (image to the right, tiny) */
     .awards-list { list-style: none; padding-left: 0; margin: 0; }
     .awards-list li{
@@ -64,15 +85,12 @@
       border: 1px solid #222;
       border-radius: 6px;
     }
-    /* Make one specific award image bigger (3×) */
+    /* larger/smaller variants */
     .award-thumb--large{ width: 15em; }
+    .award-thumb--medium{ width: 7.5em; }
     @media (max-width: 480px){
       .award-thumb{ width: 4em; }
       .award-thumb--large{ width: 8em; }
-    }
-        /* 1.5× size for selected thumbnails */
-    .award-thumb--medium{ width: 7.5em; }
-    @media (max-width: 480px){
       .award-thumb--medium{ width: 6em; }
     }
   </style>
@@ -94,6 +112,7 @@
 
   <nav>
     <div class="wrap">
+      <a href="#home">Home</a>
       <a href="#about">About / CV</a>
       <a href="#research">Research</a>
       <a href="#publications">Publications</a>
@@ -103,7 +122,30 @@
     </div>
   </nav>
 
+  <!-- NEW HOME SECTION -->
   <main class="wrap">
+    <section id="home">
+      <h2>Home</h2>
+      <p class="muted">Welcome — jump straight to the parts you need:</p>
+      <div class="tile-grid">
+        <!-- CV tile -->
+        <a class="tile" href="#about">
+          <div class="tile-plain">CV</div>
+          <div class="tile-body"><p class="tile-title">About / CV</p></div>
+        </a>
+        <!-- Publications tile -->
+        <a class="tile" href="#publications">
+          <img src="PRLcover%202023.png" alt="Publications thumbnail">
+          <div class="tile-body"><p class="tile-title">Publications</p></div>
+        </a>
+        <!-- Awards tile -->
+        <a class="tile" href="#awards">
+          <img src="LION_award.png" alt="Awards thumbnail">
+          <div class="tile-body"><p class="tile-title">Awards</p></div>
+        </a>
+      </div>
+    </section>
+
     <section id="about">
       <h2>About / CV</h2>
       <p>I'm a physicist working on hydrodynamics, active matter, and pattern formation in living systems.</p>
@@ -177,7 +219,6 @@
           <div class="award-text">
             <a href="https://www.nwo.nl/en/researchprogrammes/rubicon/awarded-grants/awarded-rubicon-grants-2025" target="_blank" rel="noopener">Rubicon Grant</a>, NWO (2025&ndash;2027)
           </div>
-          <!-- Add a logo/thumbnail here later if you want -->
         </li>
       </ul>
     </section>
