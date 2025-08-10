@@ -43,6 +43,30 @@
       max-width: 150px;
       border-radius: 50%;
     }
+
+    /* Awards layout (image to the right, tiny) */
+    .awards-list { list-style: none; padding-left: 0; margin: 0; }
+    .awards-list li{
+      display: grid;
+      grid-template-columns: 1fr auto;   /* text left, image right */
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      margin: 14px 0;
+      border: 1px solid #222;
+      border-radius: 12px;
+      background: #070707;
+    }
+    .award-thumb{
+      width: 5em;          /* ≈ “5 line widths” */
+      height: auto;
+      max-width: none;     /* override global img max-width */
+      border: 1px solid #222;
+      border-radius: 6px;
+    }
+    @media (max-width: 480px){
+      .award-thumb{ width: 4em; }
+    }
   </style>
 </head>
 <body>
@@ -101,26 +125,18 @@
       <h3>Quantum Gravity &amp; Astronomy</h3>
       <ul>
         <li><strong>D. Krommydas</strong> — “Violations of the Null Energy Condition in QFT and their Implications.” <em>arXiv</em> (2018). <a href="https://arxiv.org/abs/1806.00107" target="_blank" rel="noopener">arXiv</a></li>
-
         <li><strong>*B. Freivogel</strong>, <strong>*D. Krommydas</strong> — “The Smeared Null Energy Condition.” <em>Journal of High Energy Physics</em> (2018). <a href="https://link.springer.com/article/10.1007/JHEP12(2018)067" target="_blank" rel="noopener">JHEP</a></li>
-
         <li><strong>*B. Freivogel</strong>, <strong>*D. Krommydas</strong>, <strong>*E.-A. Kontou</strong> — “The Return of the Singularities: Applications of the Smeared Null Energy Condition.” <em>SciPost Physics</em> (2022). <a href="https://scipost.org/10.21468/SciPostPhys.13.1.001" target="_blank" rel="noopener">SciPost</a></li>
-
         <li><strong>E.-A. Kontou</strong>, <strong>B. Freivogel</strong>, <strong>D. Krommydas</strong> — “A singularity theorem for evaporating black holes.” <em>The Sixteenth Marcel Grossmann Meeting</em> (2023). <a href="https://www.worldscientific.com/doi/10.1142/9789811269776_0064" target="_blank" rel="noopener">Proceedings</a></li>
-
         <li><strong>*D. Krommydas</strong>, <strong>*F. Scardigli</strong> — “Exponential distance relation (aka Titius–Bode law) in extra solar planetary systems.” <em>Monthly Notices of the Royal Astronomical Society</em> (2025). <a href="https://academic.oup.com/mnras/article/538/4/2730/8071238" target="_blank" rel="noopener">MNRAS</a></li>
       </ul>
 
       <h3>Soft, Active &amp; Living Matter</h3>
       <ul>
         <li><strong>†J.-M. Armengol-Collado</strong>, <strong>†L. N. Carenza</strong>, <strong>†J. Eckert</strong>, <strong>†D. Krommydas</strong>, L. Giomi — “Epithelia are multiscale active liquid crystals.” <em>Nature Physics</em> (2023). <a href="https://www.nature.com/articles/s41567-023-02179-0" target="_blank" rel="noopener">Nature Physics</a> · news article: <a href="https://www.nature.com/articles/s41567-023-02167-4" target="_blank" rel="noopener"><strong>Nature News &amp; Views</strong></a></li>
-
         <li><strong>D. Krommydas</strong>, L. N. Carenza, L. Giomi — “Hydrodynamic Enhancement of p-atic Defect Dynamics.” <em>Physical Review Letters</em> (2023). <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.130.098101" target="_blank" rel="noopener">PRL</a></li>
-
         <li><strong>D. Krommydas</strong>, L. N. Carenza, L. Giomi — “Collective epithelial migration is mediated by the unbinding of hexatic defects.” <em>eLife</em> (2025). <a href="https://doi.org/10.7554/eLife.105397.1" target="_blank" rel="noopener">eLife</a></li>
-
         <li>L. Puggioni, <strong>D. Krommydas</strong>, L. Giomi — “Collective migration and topological phase transitions in confluent epithelia.” <em>arXiv</em> (2025), <em>under review</em>. <a href="https://arxiv.org/abs/2502.09554" target="_blank" rel="noopener">arXiv</a></li>
-
         <li>L. N. Carenza, <strong>†J.-M. Armengol-Collado</strong>, <strong>†D. Krommydas</strong>, L. Giomi — “Quasi long-ranged order in two-dimensional active liquid crystals.” <em>Physical Review Letters</em> (2025). <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.134.128304" target="_blank" rel="noopener">PRL</a></li>
       </ul>
     </section>
@@ -132,37 +148,30 @@
           <div class="award-text">
             Cover of <a href="https://journals.aps.org/prl/issues/130/9" target="_blank" rel="noopener">Physical Review Letters, Volume 130, Issue 9</a> (2023)
           </div>
-          <a href="PRLcover%202023.png" target="_blank" rel="noopener">
-            <img src="PRLcover%202023.png" alt="PRL Cover 2023" class="award-thumb">
-          </a>
+          <img src="PRLcover%202023.png" alt="PRL Cover 2023" class="award-thumb">
         </li>
-      
+
         <li>
           <div class="award-text">
             <a href="https://www.universiteitleiden.nl/en/news/2024/03/and-the-winner-is%E2%80%A6-results-of-the-annual-physics-image-competition" target="_blank" rel="noopener">LION Image Award</a>, Leiden University (2024)
           </div>
-          <a href="LION_award.png" target="_blank" rel="noopener">
-            <img src="LION_award.png" alt="LION Image Award 2024" class="award-thumb">
-          </a>
+          <img src="LION_award.png" alt="LION Image Award 2024" class="award-thumb">
         </li>
-      
+
         <li>
           <div class="award-text">
             Cover of <a href="https://journals.aps.org/prl/issues/134/12" target="_blank" rel="noopener">Physical Review Letters, Volume 134, Issue 12</a> (2025)
           </div>
-          <a href="PRL%202025.png" target="_blank" rel="noopener">
-            <img src="PRL%202025.png" alt="PRL Cover 2025" class="award-thumb">
-          </a>
+          <img src="PRL%202025.png" alt="PRL Cover 2025" class="award-thumb">
         </li>
-      
+
         <li>
           <div class="award-text">
             <a href="https://www.nwo.nl/en/researchprogrammes/rubicon/awarded-grants/awarded-rubicon-grants-2025" target="_blank" rel="noopener">Rubicon Grant</a>, NWO (2025&ndash;2027)
           </div>
-          <!-- no image provided for this one (add later if you like) -->
+          <!-- Add a logo/thumbnail here later if you want -->
         </li>
       </ul>
-
     </section>
 
     <section id="gallery">
