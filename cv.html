@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CV — Dimitrios Krommydas</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Page-local tweaks for spacing/structure */
+    .cv-list li{ margin-bottom: .75em; }
+    .cv-list li:last-child{ margin-bottom: 0; }
+    .cv-entry{ margin: 14px 0; padding: 12px 14px; border:1px solid #222; border-radius:12px; background:#070707; }
+    .cv-entry h3{ margin:0 0 4px; font-size:1.05rem }
+    .cv-columns{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px; }
+  </style>
 </head>
 <body>
   <header>
@@ -29,12 +37,191 @@
   </div></nav>
 
   <main class="wrap">
+    <!-- Academic Qualifications (Postdoc + PhD only) -->
     <section>
-      <p><a class="btn" href="CV.pdf">Download CV (PDF)</a></p>
+      <h2>Academic Qualifications</h2>
 
-      <!-- Optional inline viewer if you like (works best on desktop browsers) -->
-      <div class="video" style="margin-top:16px;">
-        <iframe src="CV.pdf" title="CV PDF"></iframe>
+      <div class="cv-entry">
+        <h3>University of California, Santa Barbara, USA — Postdoctoral Research in Physics</h3>
+        <span class="muted">October 2024 &ndash; present</span>
+        <div class="muted">Group: M. Cristina Marchetti</div>
+      </div>
+
+      <div class="cv-entry">
+        <h3>Leiden University, Netherlands — PhD in Physics</h3>
+        <span class="muted">September 2024</span>
+        <div>PhD Thesis: <em>More Is Alive &mdash; Emergent Multiscale Order &amp; Collective Flows In Tissues</em></div>
+        <div class="muted">Supervisor: Luca Giomi</div>
+      </div>
+    </section>
+
+    <!-- Talks & Posters -->
+    <section>
+      <h2>Talks &amp; Posters</h2>
+
+      <h3 class="muted" style="margin-top:8px;">Talks</h3>
+      <ul class="cv-list">
+        <li><em>Squishy Physics Seminar</em>, Harvard University, USA, 2024</li>
+        <li><em>Soft and Living Matter Group Meeting</em>, University of Pennsylvania, USA, 2024</li>
+        <li><em>Biophysics Seminar</em>, Princeton University, USA, 2024</li>
+        <li><em>CCB Seminar</em>, Flatiron Institute, USA, 2024</li>
+        <li><em>NWO Physics “Motion”</em>, Netherlands, 2023 (<strong>Nominated</strong>)</li>
+        <li><em>APS March Meeting</em>, USA, 2023</li>
+        <li><em>1st SLAM Afternoon</em>, Leiden University, Netherlands, 2023 (<strong>Invited talk</strong>)</li>
+        <li>Opening act for <em>Joan Van der Waals Colloquium</em>, Leiden University, Netherlands, 2023 (<strong>Invited talk</strong>)</li>
+        <li><em>APS March Meeting</em>, USA, 2022</li>
+        <li><em>30th Dutch Soft Matter Meeting</em>, soundbite, Online, 2021</li>
+        <li><em>SLAM Seminar</em>, Leiden University, Netherlands, 2020 (<strong>Invited talk</strong>)</li>
+        <li><em>3rd Workshop on Theoretical Physics</em>, Aristotle University of Thessaloniki, Greece, 2020 (<strong>Invited talk</strong>)</li>
+        <li><em>2nd Workshop on Theoretical Physics</em>, Aristotle University of Thessaloniki, Greece, 2019 (<strong>Invited talk</strong>)</li>
+      </ul>
+
+      <h3 class="muted" style="margin-top:16px;">Posters</h3>
+      <ul class="cv-list">
+        <li><em>KITP conference: The Many Faces of Active Mechanics</em>, USA, 2024</li>
+        <li><em>DRSTP symposium: Trends in Theory</em>, Netherlands, 2024</li>
+        <li><em>NWO Physics</em>, Netherlands, 2024 (<em><strong>Selected for one-minute pitch</strong></em>)</li>
+        <li><em>Casimir Summer School</em>, Netherlands, 2023</li>
+        <li><em>APS March Meeting</em>, USA, 2023</li>
+        <li><em>DRSTP symposium: Trends in Theory</em>, Netherlands, 2022 (<em><strong>Best poster nomination</strong></em>)</li>
+        <li><em>NWO Biophysics</em>, Netherlands, 2022</li>
+        <li><em>Active Matter and Complex Media School (Cargèse)</em>, France, 2022</li>
+        <li><em>Active Matter: The Next 25 Years</em>, Lorentz workshop, Netherlands, 2022</li>
+        <li><em>International Liquid Crystal Conference</em>, Portugal, 2022</li>
+        <li><em>Physics of Life Summer School</em>, UK, 2022</li>
+        <li><em>35th Conference of European Colloid &amp; Interface Society</em>, online, 2021</li>
+      </ul>
+    </section>
+
+    <!-- Programming Languages & Tools -->
+    <section>
+      <h2>Programming Languages &amp; Tools</h2>
+      <div class="cv-columns">
+        <div class="cv-entry">
+          <ul class="cv-list">
+            <li>Finite Difference simulations</li>
+            <li>Lattice Boltzmann Method simulations</li>
+            <li>C</li>
+            <li>Python</li>
+            <li>Mathematica</li>
+            <li>Paraview</li>
+            <li>Inkscape</li>
+            <li>LaTeX</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service -->
+    <section>
+      <h2>Service</h2>
+
+      <h3 class="muted" style="margin-top:8px;">Workshops</h3>
+      <ul class="cv-list">
+        <li><em>Computational Advances in Active Matter</em>, Lorentz Center, Netherlands, 2023 (<strong>Discussion Leader</strong>)</li>
+        <li><em>4th Workshop on Theoretical Physics</em>, Aristotle University of Thessaloniki, Greece, 2021 (<strong>Organizer</strong>)</li>
+        <li><em>3rd Workshop on Theoretical Physics</em>, Aristotle University of Thessaloniki, Greece, 2020 (<strong>Organizer</strong>)</li>
+      </ul>
+
+      <h3 class="muted" style="margin-top:16px;">Journal Clubs &amp; Seminars</h3>
+      <ul class="cv-list">
+        <li><em>High Energy Theory journal club</em>, Purdue University, 2019–2020 (<strong>Organizer &amp; Coordinator</strong>)</li>
+        <li><em>Soft Matter Journal Club</em>, Leiden University, 2020–2021 (<strong>Organizer &amp; Coordinator</strong>)</li>
+        <li><em>SLAM (Smart, Living &amp; Active Matter) Seminars</em>, Leiden University, 2021–2023 (<strong>Organizer &amp; Coordinator</strong>)</li>
+        <li><em>S.A.L.S.A. Journal Club</em>, University of California Santa Barbara, 2025–present (<strong>Organizer &amp; Coordinator</strong>)</li>
+      </ul>
+
+      <h3 class="muted" style="margin-top:16px;">Outreach</h3>
+      <ul class="cv-list">
+        <li>“Theoretical physics and advice for first year PhD students”, talk at the <em>8th annual Science Day</em>, Leiden University, 2023 (<strong>Invited</strong>)</li>
+        <li>Provided simulations that became exhibits in the <em>“Night of Discoveries 2024”</em> science &amp; art exhibition, Leiden, 2024 (<strong>Invited</strong>)</li>
+      </ul>
+    </section>
+
+    <!-- Academic Teaching -->
+    <section>
+      <h2>Academic Teaching</h2>
+
+      <h3 class="muted" style="margin-top:8px;">Lecturer &amp; Coordinator</h3>
+      <ul class="cv-list">
+        <li>BSc Course: <em>Physics 172 — Classical Mechanics</em>, Purdue University, USA, 2019</li>
+      </ul>
+
+      <h3 class="muted" style="margin-top:16px;">Teaching Assistant</h3>
+      <ul class="cv-list">
+        <li>MSc Course: <em>Statistical Physics b</em>, Leiden University, Netherlands, 2021–2024</li>
+        <li>MSc Course: <em>Statistical Physics a</em>, Leiden University, Netherlands, 2021–2024</li>
+        <li>BSc Course: <em>Diffusie</em>, Leiden University, Netherlands, 2021</li>
+        <li>BSc Course: <em>Physics 172 — Classical Mechanics</em>, Purdue University, USA, 2018–2020</li>
+        <li>BSc Course: <em>Modern Physics Research</em>, Leiden University, Netherlands, 2018</li>
+        <li>BSc Course: <em>Statistical Physics I</em>, Leiden University, Netherlands, 2017</li>
+        <li>MSc Course: <em>Theory of General Relativity</em>, Leiden University, Netherlands, 2017</li>
+        <li>BSc Course: <em>Fysica I</em>, Vrije Universiteit Amsterdam, Netherlands, 2017</li>
+      </ul>
+    </section>
+
+    <!-- Attendance in Conferences, Workshops, etc. -->
+    <section>
+      <h2>Attendance in Conferences, Workshops, etc.</h2>
+
+      <h3 class="muted" style="margin-top:8px;">Conferences, Seminars, and Workshops</h3>
+      <ul class="cv-list">
+        <li><em>Active Solids: From Metamaterials to Biological Tissue</em>, KITP, USA, 2025</li>
+        <li><em>31st Dutch Soft Matter Meeting</em>, TU Delft, Netherlands, 2022</li>
+        <li><em>Strings and Particles</em> at (Purdue) Ohio, Cincinnati, Kentucky (SPOCK), 2018–2020</li>
+        <li><em>Aspects of Time-dependent Holography</em>, D-ITP, Netherlands, 2017</li>
+        <li><em>Theoretical Approaches to Cosmic Acceleration</em>, Lorentz Center, Netherlands, 2017</li>
+        <li><em>Physics@FOM Veldhoven</em>, Netherlands, 2016</li>
+        <li><em>Amsterdam String Workshop</em>, University of Amsterdam, Netherlands, 2016</li>
+        <li><em>D-ITP Entanglement Workshop</em>, D-ITP, Netherlands, 2016</li>
+        <li><em>Utrecht Cosmology Symposium</em>, Utrecht University, Netherlands, 2016</li>
+        <li><em>Cosmology Group Seminars</em>, University of Amsterdam, Netherlands, 2016–2018</li>
+        <li><em>String Theory Group Seminars</em>, University of Amsterdam, Netherlands, 2015–2018</li>
+        <li><em>D-ITP Seminars</em>, D-ITP, Netherlands, 2015–2018</li>
+        <li><em>2nd–5th International Week Dedicated to Math</em>, Thessaloniki, Greece, 2010–2013</li>
+      </ul>
+
+      <h3 class="muted" style="margin-top:16px;">Schools</h3>
+      <ul class="cv-list">
+        <li><em>Quantum Field Theory, Strings, and Gravity</em>, Amsterdam–Brussels–Geneva–Paris Doctoral School, 2016</li>
+        <li><em>Supergravity, Strings and Gauge Theory</em>, CERN Winter School, 2016</li>
+        <li><em>Quantum Field Theory, Strings and Gravity</em>, Brussels–Paris–Amsterdam–Geneva Doctoral School, 2015</li>
+        <li><em>1st Astrophysics Winter School</em>, Aristotle University of Thessaloniki, 2010</li>
+      </ul>
+
+      <h3 class="muted" style="margin-top:16px;">Journal Clubs</h3>
+      <ul class="cv-list">
+        <li><em>String Theory Journal Club</em>, University of Amsterdam, Netherlands, 2014–2017</li>
+        <li><em>Cosmology Journal Club</em>, University of Amsterdam, Netherlands, 2014–2017</li>
+        <li><em>String Theory Journal Club</em>, Leiden University, Netherlands, 2017–2018</li>
+      </ul>
+    </section>
+
+    <!-- Personal Skills -->
+    <section>
+      <h2>Personal Skills</h2>
+      <div class="cv-columns">
+        <div class="cv-entry">
+          <strong>Languages</strong>
+          <ul class="cv-list" style="margin-top:8px;">
+            <li>Greek: Native Proficiency</li>
+            <li>English: Full Professional Proficiency</li>
+            <li>French: Limited Working Proficiency</li>
+            <li>Japanese: Limited Working Proficiency</li>
+          </ul>
+        </div>
+        <div class="cv-entry">
+          <strong>Hobbies</strong>
+          <ul class="cv-list" style="margin-top:8px;">
+            <li>Bouldering (7B) / Climbing (5.12d)</li>
+            <li>Football</li>
+            <li>Volleyball</li>
+            <li>Classical/Electric Guitar</li>
+            <li>Singing</li>
+            <li>Theater</li>
+            <li>DotA 2</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
