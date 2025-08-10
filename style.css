@@ -41,5 +41,5 @@ img{max-width:100%; height:auto; border-radius:10px; display:block}
 }
 
 /* Publications spacing (used on publications.html) */
-.pub-list li{ margin-bottom:1em; }
+.pub-list li{ margin-bottom:2em; }
 .pub-list li:last-child{ margin-bottom:0; }
