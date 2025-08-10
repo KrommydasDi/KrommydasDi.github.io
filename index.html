@@ -58,14 +58,17 @@
       background: #070707;
     }
     .award-thumb{
-      width: 5em;          /* ≈ “5 line widths” */
+      width: 5em;          /* base size */
       height: auto;
       max-width: none;     /* override global img max-width */
       border: 1px solid #222;
       border-radius: 6px;
     }
+    /* Make one specific award image bigger (3×) */
+    .award-thumb--large{ width: 15em; }
     @media (max-width: 480px){
       .award-thumb{ width: 4em; }
+      .award-thumb--large{ width: 8em; }
     }
   </style>
 </head>
@@ -155,7 +158,7 @@
           <div class="award-text">
             <a href="https://www.universiteitleiden.nl/en/news/2024/03/and-the-winner-is%E2%80%A6-results-of-the-annual-physics-image-competition" target="_blank" rel="noopener">LION Image Award</a>, Leiden University (2024)
           </div>
-          <img src="LION_award.png" alt="LION Image Award 2024" class="award-thumb">
+          <img src="LION_award.png" alt="LION Image Award 2024" class="award-thumb award-thumb--large">
         </li>
 
         <li>
