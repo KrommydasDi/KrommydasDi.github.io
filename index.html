@@ -9,7 +9,7 @@
     /* Small, text-wrapped YouTube embed */
     .video-inline {
       float: right;
-      width: 240px;              /* adjust to taste (e.g., 200–300px) */
+      width: 240px;              /* adjust to taste */
       aspect-ratio: 16/9;
       margin: 0 0 1rem 1rem;     /* space from the text */
     }
@@ -20,12 +20,25 @@
       display: block;
       border: 0;
     }
-    /* Make the inline video stack nicely on phones */
+    /* Larger local video container */
+    .video-block video {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border: 0;
+    }
+    /* Captions (legends) */
+    figcaption.caption {
+      font-size: 0.85rem;
+      line-height: 1.3;
+      color: #6b7280;            /* muted gray */
+      margin-top: 0.4rem;
+      font-style: italic;
+    }
+    /* Stack nicely on phones */
     @media (max-width: 600px) {
       .video-inline { float: none; width: 100%; margin: 1rem 0; }
     }
-    /* Ensure local <video> scales responsively */
-    video { max-width: 100%; height: auto; display: block; }
   </style>
 </head>
 <body>
@@ -58,7 +71,10 @@
 
       <!-- Small, text-wrapped YouTube embed (autoplay + smooth loop via IFrame API) -->
       <figure class="video-inline" aria-label="Low-resolution clip (auto-plays and loops)">
-        <div id="yt-inline"></div>
+        <div id="yt-inline" aria-describedby="yt-cap"></div>
+        <figcaption id="yt-cap" class="caption">
+          “Hexatic disclination annihilation. Streamlines are backflow (back-reaction), sourced by the distortion of the orientational field due to the defects themselves.”
+        </figcaption>
       </figure>
 
       <p class="muted">
@@ -68,13 +84,16 @@
       </p>
 
       <!-- Embedded MP4 from your repo — autoplay, muted (required for autoplay), loop -->
-      <div class="video" style="margin-top:16px;">
-        <video autoplay muted loop playsinline controls preload="metadata">
+      <figure class="video-block" style="margin-top:16px;">
+        <video autoplay muted loop playsinline controls preload="metadata" aria-describedby="mp4-cap">
           <source src="defect_quadrupole.mp4" type="video/mp4">
           Your browser does not support the video tag.
           <a href="defect_quadrupole.mp4">Download video</a>
         </video>
-      </div>
+        <figcaption id="mp4-cap" class="caption">
+          “Hexatic, active dislocation unbinding, and the resulting flow field.”
+        </figcaption>
+      </figure>
     </section>
   </main>
 
@@ -89,7 +108,6 @@
     document.getElementById('y').textContent = new Date().getFullYear();
 
     // --- YouTube IFrame API for smoother looping autoplay ---
-    // Load API
     (function loadYT() {
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
@@ -97,16 +115,16 @@
     })();
 
     let ytPlayer;
-    // API callback must be global
+    // The API looks for this global to initialize
     function onYouTubeIframeAPIReady() {
       ytPlayer = new YT.Player('yt-inline', {
         videoId: 'bvBdAwXArkI',
         playerVars: {
-          autoplay: 1,          // autoplay
-          mute: 1,              // required by browsers to allow autoplay
-          loop: 1,              // loop
-          playlist: 'bvBdAwXArkI', // required for loop to work
-          controls: 0,          // hide controls (cleaner + avoids clicks)
+          autoplay: 1,              // autoplay
+          mute: 1,                  // required by browsers to allow autoplay
+          loop: 1,                  // loop
+          playlist: 'bvBdAwXArkI',  // required for loop to work
+          controls: 0,              // hide controls for a cleaner inline look
           modestbranding: 1,
           rel: 0,
           fs: 0,
@@ -117,7 +135,7 @@
         events: {
           onReady: function (e) { e.target.playVideo(); },
           onStateChange: function (e) {
-            // If YouTube fires ENDED, immediately restart
+            // If YouTube signals ENDED, restart immediately
             if (e.data === YT.PlayerState.ENDED) {
               e.target.seekTo(0.001, true);
               e.target.playVideo();
@@ -126,8 +144,7 @@
         }
       });
     }
-
-    // Extra smoothing: preemptively seek just before the end to avoid the brief pause/flash
+    // Extra smoothing: jump just before the end to avoid the tiny pause
     const LOOP_SAFETY = 0.15; // seconds before the end to jump
     setInterval(() => {
       if (!ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
