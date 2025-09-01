@@ -9,20 +9,23 @@
     /* Small, text-wrapped YouTube embed */
     .video-inline {
       float: right;
-      width: 260px;              /* make it small */
-      aspect-ratio: 16/9;        /* keep correct proportions */
+      width: 240px;              /* adjust to taste (e.g., 200–300px) */
+      aspect-ratio: 16/9;
       margin: 0 0 1rem 1rem;     /* space from the text */
     }
+    .video-inline > div,
     .video-inline iframe {
       width: 100%;
       height: 100%;
-      border: 0;
       display: block;
+      border: 0;
     }
-    /* Stack nicely on phones */
+    /* Make the inline video stack nicely on phones */
     @media (max-width: 600px) {
       .video-inline { float: none; width: 100%; margin: 1rem 0; }
     }
+    /* Ensure local <video> scales responsively */
+    video { max-width: 100%; height: auto; display: block; }
   </style>
 </head>
 <body>
@@ -53,15 +56,9 @@
     <section id="home">
       <h2>Home</h2>
 
-      <!-- Small, text-wrapped YouTube embed (loops) -->
-      <figure class="video-inline" aria-label="Low-resolution clip (loops)">
-        <iframe
-          src="https://www.youtube.com/embed/bvBdAwXArkI?loop=1&playlist=bvBdAwXArkI&playsinline=1&rel=0&modestbranding=1"
-          title="YouTube video"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+      <!-- Small, text-wrapped YouTube embed (autoplay + smooth loop via IFrame API) -->
+      <figure class="video-inline" aria-label="Low-resolution clip (auto-plays and loops)">
+        <div id="yt-inline"></div>
       </figure>
 
       <p class="muted">
@@ -70,9 +67,9 @@
         CV, publications, and awards.
       </p>
 
-      <!-- Embedded MP4 from your repo (loops) -->
+      <!-- Embedded MP4 from your repo — autoplay, muted (required for autoplay), loop -->
       <div class="video" style="margin-top:16px;">
-        <video controls preload="metadata" playsinline loop>
+        <video autoplay muted loop playsinline controls preload="metadata">
           <source src="defect_quadrupole.mp4" type="video/mp4">
           Your browser does not support the video tag.
           <a href="defect_quadrupole.mp4">Download video</a>
@@ -85,9 +82,61 @@
     <div class="wrap">
       © <span id="y"></span> Dimitrios Krommydas
     </div>
-    <script>
-      document.getElementById('y').textContent = new Date().getFullYear();
-    </script>
   </footer>
+
+  <script>
+    // Year stamp
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // --- YouTube IFrame API for smoother looping autoplay ---
+    // Load API
+    (function loadYT() {
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(tag);
+    })();
+
+    let ytPlayer;
+    // API callback must be global
+    function onYouTubeIframeAPIReady() {
+      ytPlayer = new YT.Player('yt-inline', {
+        videoId: 'bvBdAwXArkI',
+        playerVars: {
+          autoplay: 1,          // autoplay
+          mute: 1,              // required by browsers to allow autoplay
+          loop: 1,              // loop
+          playlist: 'bvBdAwXArkI', // required for loop to work
+          controls: 0,          // hide controls (cleaner + avoids clicks)
+          modestbranding: 1,
+          rel: 0,
+          fs: 0,
+          playsinline: 1,
+          iv_load_policy: 3,
+          cc_load_policy: 0
+        },
+        events: {
+          onReady: function (e) { e.target.playVideo(); },
+          onStateChange: function (e) {
+            // If YouTube fires ENDED, immediately restart
+            if (e.data === YT.PlayerState.ENDED) {
+              e.target.seekTo(0.001, true);
+              e.target.playVideo();
+            }
+          }
+        }
+      });
+    }
+
+    // Extra smoothing: preemptively seek just before the end to avoid the brief pause/flash
+    const LOOP_SAFETY = 0.15; // seconds before the end to jump
+    setInterval(() => {
+      if (!ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
+      const dur = ytPlayer.getDuration ? ytPlayer.getDuration() : 0;
+      const t = ytPlayer.getCurrentTime ? ytPlayer.getCurrentTime() : 0;
+      if (dur && t > 0 && (dur - t) < LOOP_SAFETY) {
+        ytPlayer.seekTo(0.001, true);
+      }
+    }, 100);
+  </script>
 </body>
 </html>
