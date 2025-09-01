@@ -5,6 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Home — Dimitrios Krommydas</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Small, text-wrapped YouTube embed */
+    .video-inline {
+      float: right;
+      width: 260px;              /* make it small */
+      aspect-ratio: 16/9;        /* keep correct proportions */
+      margin: 0 0 1rem 1rem;     /* space from the text */
+    }
+    .video-inline iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+    /* Stack nicely on phones */
+    @media (max-width: 600px) {
+      .video-inline { float: none; width: 100%; margin: 1rem 0; }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -33,9 +52,22 @@
   <main class="wrap">
     <section id="home">
       <h2>Home</h2>
+
+      <!-- Small, text-wrapped YouTube embed (loops) -->
+      <figure class="video-inline" aria-label="Low-resolution clip (loops)">
+        <iframe
+          src="https://www.youtube.com/embed/bvBdAwXArkI?loop=1&playlist=bvBdAwXArkI&playsinline=1&rel=0&modestbranding=1"
+          title="YouTube video"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </figure>
+
       <p class="muted">
-        Employing continuum field theories, such as hydrodynamics, I study the emergence and functionality of order in biological and bio-inspired systems.
-        Below is a short clip from my work. Use the top bar to navigate to my CV, publications, and awards.
+        Employing continuum field theories, such as hydrodynamics, I study the emergence and functionality of order
+        in biological and bio-inspired systems. Below is a short clip from my work. Use the top bar to navigate to my
+        CV, publications, and awards.
       </p>
 
       <!-- Embedded MP4 from your repo (loops) -->
@@ -45,18 +77,6 @@
           Your browser does not support the video tag.
           <a href="defect_quadrupole.mp4">Download video</a>
         </video>
-      </div>
-
-      <!-- Embedded YouTube (loops via playlist trick) -->
-      <div class="video" style="margin-top:16px; aspect-ratio:16/9;">
-        <iframe
-          src="https://www.youtube.com/embed/bvBdAwXArkI?loop=1&playlist=bvBdAwXArkI&playsinline=1&rel=0&modestbranding=1"
-          title="YouTube video"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          loading="lazy"
-          style="width:100%; height:100%; border:0;"
-        ></iframe>
       </div>
     </section>
   </main>
