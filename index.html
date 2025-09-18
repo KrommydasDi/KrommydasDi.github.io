@@ -8,7 +8,7 @@
   <style>
     :root {
       /* One knob to size the squares */
-      --sq: 260px; /* was 240px; try 270–280px for a touch larger */
+      --sq: 280px; /* was 260px; try 290–300px for a touch larger */
     }
 
     /* Content width */
@@ -29,7 +29,7 @@
       align-items: flex-start;
       justify-content: flex-start;  /* left-align under the text */
       margin-top: 0.75rem;
-      flex-wrap: wrap;              /* in case you later shrink the width */
+      flex-wrap: wrap;
     }
     .video-card {
       flex: 0 0 auto;               /* fixed-size cards based on --sq */
@@ -66,7 +66,7 @@
 
     /* Auto-shrink on tiny screens */
     @media (max-width: 480px) {
-      :root { --sq: 210px; }
+      :root { --sq: 220px; }
     }
   </style>
 </head>
@@ -98,7 +98,7 @@
     <section id="home">
       <h2>Home</h2>
 
-      <!-- Split into proper paragraphs (using your updated text) -->
+      <!-- Split into proper paragraphs (your latest text) -->
       <p class="muted">
         I am a theoretical physicist employing differential geometry, topology, and continuum field theories to study biological and bio-inspired physical systems.
         Currently, my research focuses on the emergence and functionality of order in living matter, as well as shape and pattern formation during development.
