@@ -6,13 +6,11 @@
   <title>Home — Dimitrios Krommydas</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- Video row layout --- */
-    :root { --media-h: 260px; }       /* uniform media height; tweak as needed */
-
+    /* --- Uniform video gallery --- */
     .video-row {
       display: flex;
       gap: 1rem;
-      align-items: stretch;           /* equal heights */
+      align-items: flex-start;
       justify-content: space-between;
       flex-wrap: nowrap;
       margin-top: 1rem;
@@ -23,21 +21,21 @@
       display: flex;
       flex-direction: column;
     }
-    .video-media {
+
+    /* Fixed aspect box so every player has identical size */
+    .media-box {
       width: 100%;
-      height: var(--media-h);         /* identical height for all videos */
+      aspect-ratio: 16/9;    /* same box for all */
       background: #000;
       border-radius: 8px;
       overflow: hidden;
       display: block;
       border: 0;
     }
-    /* Visual crop top/bottom, keep same box for all */
-    .video-media video {
+    .media-box video {
       width: 100%;
       height: 100%;
-      object-fit: cover;              /* crops top/bottom if needed */
-      object-position: 50% 50%;       /* adjust vertical framing if you like */
+      object-fit: contain;    /* show full frame; add letterboxing if needed */
       display: block;
       border: 0;
     }
@@ -54,7 +52,6 @@
     @media (max-width: 900px) {
       .video-row { flex-wrap: wrap; }
       .video-card { flex: 1 1 100%; }
-      :root { --media-h: 220px; }
     }
   </style>
 </head>
@@ -96,47 +93,53 @@
         Below are some numerical simulations of my past and ongoing work.
       </p>
 
-      <!-- === Three uniform videos in one row === -->
+      <!-- === Three same-size videos === -->
       <div class="video-row" aria-label="Research video gallery">
 
-        <!-- Replaces the old YouTube block -->
+        <!-- 1) Hexatic annihilation (local MP4) -->
         <figure class="video-card">
-          <video class="video-media" autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-1">
-            <source src="annihilation_backflow.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-            <a href="annihilation_backflow.mp4">Download video</a>
-          </video>
+          <div class="media-box">
+            <video autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-1">
+              <source src="annihilation_backflow.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              <a href="annihilation_backflow.mp4">Download video</a>
+            </video>
+          </div>
           <figcaption id="cap-1" class="caption">
             “Hexatic disclination annihilation. Streamlines are backflow (back-reaction), sourced by the distortion of the orientational field due to the defects themselves.”
           </figcaption>
         </figure>
 
-        <!-- Local MP4: defect_quadrupole.mp4 -->
+        <!-- 2) Defect quadrupole -->
         <figure class="video-card">
-          <video class="video-media" autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-2">
-            <source src="defect_quadrupole.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-            <a href="defect_quadrupole.mp4">Download video</a>
-          </video>
+          <div class="media-box">
+            <video autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-2">
+              <source src="defect_quadrupole.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              <a href="defect_quadrupole.mp4">Download video</a>
+            </video>
+          </div>
           <figcaption id="cap-2" class="caption">
             “Hexatic, active dislocation unbinding, and the resulting flow field.”
           </figcaption>
         </figure>
 
-        <!-- Local MP4: swift_hohenberg_evolution.mp4 -->
+        <!-- 3) Swift–Hohenberg evolution -->
         <figure class="video-card">
-          <video class="video-media" autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-3">
-            <source src="swift_hohenberg_evolution.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-            <a href="swift_hohenberg_evolution.mp4">Download video</a>
-          </video>
+          <div class="media-box">
+            <video autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-3">
+              <source src="swift_hohenberg_evolution.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+              <a href="swift_hohenberg_evolution.mp4">Download video</a>
+            </video>
+          </div>
           <figcaption id="cap-3" class="caption">
             Growth and coarsening in Swift–Hohenberg equation.
           </figcaption>
         </figure>
 
       </div>
-      <!-- === /video row === -->
+      <!-- === /videos === -->
 
     </section>
   </main>
