@@ -6,7 +6,14 @@
   <title>Home — Dimitrios Krommydas</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* --- Uniform video gallery --- */
+    /* Wider content so videos can grow */
+    .wrap {
+      max-width: 1440px;   /* increase/decrease to taste (e.g., 1280 or 1600) */
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* --- Uniform, larger video gallery --- */
     .video-row {
       display: flex;
       gap: 1rem;
@@ -22,36 +29,42 @@
       flex-direction: column;
     }
 
-    /* Fixed aspect box so every player has identical size */
+    /* Same-size 16:9 boxes; bigger via min-height */
     .media-box {
       width: 100%;
-      aspect-ratio: 16/9;    /* same box for all */
+      aspect-ratio: 16/9;
       background: #000;
       border-radius: 8px;
       overflow: hidden;
       display: block;
       border: 0;
+      min-height: 360px;   /* bump to 380–420px if you want even larger */
     }
     .media-box video {
       width: 100%;
       height: 100%;
-      object-fit: contain;    /* show full frame; add letterboxing if needed */
+      object-fit: contain;   /* no cropping; letterbox if needed */
       display: block;
       border: 0;
     }
 
     figcaption.caption {
-      font-size: 0.85rem;
-      line-height: 1.3;
-      color: #6b7280;
-      margin-top: 0.4rem;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      color: #6b7280;        /* muted gray */
+      margin-top: 0.5rem;
       font-style: italic;
     }
 
-    /* Stack on small screens */
+    /* Paragraph rhythm */
+    p.muted { line-height: 1.6; }
+    p.muted + p.muted { margin-top: 0.8rem; }
+
+    /* Stack on small screens, keep them reasonably big */
     @media (max-width: 900px) {
       .video-row { flex-wrap: wrap; }
       .video-card { flex: 1 1 100%; }
+      .media-box { min-height: 260px; }
     }
   </style>
 </head>
@@ -83,19 +96,19 @@
     <section id="home">
       <h2>Home</h2>
 
+      <!-- Split into proper paragraphs -->
       <p class="muted">
-        I am a theoretical physicist employing differential geometry, topology, and continuum field theories to study biological and 
-        bio-inspired physical systems. Currently, my research focuses on the emergence and functionality of order in living matter, 
-        as well as shape and pattern formation during development. 
-        
-        A parallel aspect of my work is to generalize theorems of General Relativity, such as the Penrose–Hawking singularity theorems,
-        to semiclassical and quantum gravity. This work includes constraining exotic spacetimes, such as bouncing cosmologies and traversible wormholes,
-        by applying basic requirements that physical matter must satisfy, such as energy conditions.
-        
+        I am a theoretical physicist employing differential geometry, topology, and continuum field theories to study biological and bio-inspired physical systems.
+        Currently, my research focuses on the emergence and functionality of order in living matter, as well as shape and pattern formation during development.
+      </p>
+      <p class="muted">
+        A parallel aspect of my work is to generalize theorems of General Relativity, such as the Penrose–Hawking singularity theorems, to semiclassical and quantum gravity. This includes constraining exotic spacetimes (e.g., bouncing cosmologies and traversable wormholes) by applying basic requirements that physical matter must satisfy, such as energy conditions.
+      </p>
+      <p class="muted">
         Below are some numerical simulations of my past and ongoing work.
       </p>
 
-      <!-- === Three same-size videos === -->
+      <!-- === Three larger, same-size videos === -->
       <div class="video-row" aria-label="Research video gallery">
 
         <!-- 1) Hexatic annihilation (local MP4) -->
