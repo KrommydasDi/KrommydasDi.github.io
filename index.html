@@ -6,21 +6,25 @@
   <title>Home — Dimitrios Krommydas</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Wider content so videos can grow */
+    /* Content width tuned so videos fit comfortably beneath the text */
     .wrap {
-      max-width: 1440px;   /* increase/decrease to taste (e.g., 1280 or 1600) */
+      max-width: 1120px;     /* adjust to taste: 1040–1200px all fine */
       margin: 0 auto;
       padding: 0 1rem;
     }
 
-    /* --- Uniform, larger video gallery --- */
+    /* Paragraph rhythm */
+    p.muted { line-height: 1.6; }
+    p.muted + p.muted { margin-top: 0.8rem; }
+
+    /* --- Compact, same-size video gallery under the text --- */
     .video-row {
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;          /* tight gap so all three fit nicely */
       align-items: flex-start;
       justify-content: space-between;
+      margin-top: 0.75rem;   /* sits right below the paragraph block */
       flex-wrap: nowrap;
-      margin-top: 1rem;
     }
     .video-card {
       flex: 1 1 0;
@@ -29,42 +33,38 @@
       flex-direction: column;
     }
 
-    /* Same-size 16:9 boxes; bigger via min-height */
+    /* Identical-sized boxes, smaller than before */
     .media-box {
       width: 100%;
-      aspect-ratio: 16/9;
+      aspect-ratio: 16/9;    /* consistent size, no cropping */
+      min-height: 220px;     /* smaller height so the row tucks under the text */
       background: #000;
       border-radius: 8px;
       overflow: hidden;
       display: block;
       border: 0;
-      min-height: 360px;   /* bump to 380–420px if you want even larger */
     }
     .media-box video {
       width: 100%;
       height: 100%;
-      object-fit: contain;   /* no cropping; letterbox if needed */
+      object-fit: contain;   /* preserve full frame; letterbox if needed */
       display: block;
       border: 0;
     }
 
     figcaption.caption {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.35;
-      color: #6b7280;        /* muted gray */
-      margin-top: 0.5rem;
+      color: #6b7280;
+      margin-top: 0.45rem;
       font-style: italic;
     }
 
-    /* Paragraph rhythm */
-    p.muted { line-height: 1.6; }
-    p.muted + p.muted { margin-top: 0.8rem; }
-
-    /* Stack on small screens, keep them reasonably big */
+    /* Stack on small screens */
     @media (max-width: 900px) {
       .video-row { flex-wrap: wrap; }
       .video-card { flex: 1 1 100%; }
-      .media-box { min-height: 260px; }
+      .media-box { min-height: 200px; }
     }
   </style>
 </head>
@@ -108,7 +108,7 @@
         Below are some numerical simulations of my past and ongoing work.
       </p>
 
-      <!-- === Three larger, same-size videos === -->
+      <!-- === Three smaller, same-size videos tucked under the text === -->
       <div class="video-row" aria-label="Research video gallery">
 
         <!-- 1) Hexatic annihilation (local MP4) -->
