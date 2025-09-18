@@ -7,35 +7,41 @@
   <link rel="stylesheet" href="style.css">
   <style>
     /* --- Video row layout --- */
+    :root { --media-h: 260px; }       /* uniform media height; tweak as needed */
+
     .video-row {
       display: flex;
       gap: 1rem;
-      align-items: flex-start;
+      align-items: stretch;           /* equal heights */
       justify-content: space-between;
-      flex-wrap: nowrap;              /* keep in one line on wide screens */
+      flex-wrap: nowrap;
       margin-top: 1rem;
     }
     .video-card {
-      flex: 1 1 0;                    /* equal widths */
+      flex: 1 1 0;
       max-width: 100%;
+      display: flex;
+      flex-direction: column;
     }
     .video-media {
       width: 100%;
-      aspect-ratio: 16/9;             /* identical aspect across all */
-      display: block;
-      border: 0;
-      background: #000;               /* avoids white flash before load */
+      height: var(--media-h);         /* identical height for all videos */
+      background: #000;
       border-radius: 8px;
       overflow: hidden;
+      display: block;
+      border: 0;
     }
-    .video-media > div,
-    .video-media iframe,
+    /* Visual crop top/bottom, keep same box for all */
     .video-media video {
       width: 100%;
       height: 100%;
+      object-fit: cover;              /* crops top/bottom if needed */
+      object-position: 50% 50%;       /* adjust vertical framing if you like */
       display: block;
       border: 0;
     }
+
     figcaption.caption {
       font-size: 0.85rem;
       line-height: 1.3;
@@ -43,10 +49,12 @@
       margin-top: 0.4rem;
       font-style: italic;
     }
+
     /* Stack on small screens */
     @media (max-width: 900px) {
       .video-row { flex-wrap: wrap; }
       .video-card { flex: 1 1 100%; }
+      :root { --media-h: 220px; }
     }
   </style>
 </head>
@@ -88,37 +96,41 @@
         Below are some numerical simulations of my past and ongoing work.
       </p>
 
-      <!-- === Unified video row (all same size) === -->
+      <!-- === Three uniform videos in one row === -->
       <div class="video-row" aria-label="Research video gallery">
 
-        <!-- YouTube (auto-plays muted, smooth loop via IFrame API) -->
+        <!-- Replaces the old YouTube block -->
         <figure class="video-card">
-          <div id="yt-inline" class="video-media" aria-describedby="yt-cap"></div>
-          <figcaption id="yt-cap" class="caption">
+          <video class="video-media" autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-1">
+            <source src="annihilation_backflow.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            <a href="annihilation_backflow.mp4">Download video</a>
+          </video>
+          <figcaption id="cap-1" class="caption">
             “Hexatic disclination annihilation. Streamlines are backflow (back-reaction), sourced by the distortion of the orientational field due to the defects themselves.”
           </figcaption>
         </figure>
 
         <!-- Local MP4: defect_quadrupole.mp4 -->
         <figure class="video-card">
-          <video class="video-media" autoplay muted loop playsinline controls preload="metadata" aria-describedby="mp4-cap-1">
+          <video class="video-media" autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-2">
             <source src="defect_quadrupole.mp4" type="video/mp4">
             Your browser does not support the video tag.
             <a href="defect_quadrupole.mp4">Download video</a>
           </video>
-          <figcaption id="mp4-cap-1" class="caption">
+          <figcaption id="cap-2" class="caption">
             “Hexatic, active dislocation unbinding, and the resulting flow field.”
           </figcaption>
         </figure>
 
-        <!-- Local MP4: swift_hohenberg_evolution.mp4 (NEW) -->
+        <!-- Local MP4: swift_hohenberg_evolution.mp4 -->
         <figure class="video-card">
-          <video class="video-media" autoplay muted loop playsinline controls preload="metadata" aria-describedby="mp4-cap-2">
+          <video class="video-media" autoplay muted loop playsinline controls preload="metadata" aria-describedby="cap-3">
             <source src="swift_hohenberg_evolution.mp4" type="video/mp4">
             Your browser does not support the video tag.
             <a href="swift_hohenberg_evolution.mp4">Download video</a>
           </video>
-          <figcaption id="mp4-cap-2" class="caption">
+          <figcaption id="cap-3" class="caption">
             Growth and coarsening in Swift–Hohenberg equation.
           </figcaption>
         </figure>
@@ -138,53 +150,6 @@
   <script>
     // Year stamp
     document.getElementById('y').textContent = new Date().getFullYear();
-
-    // --- YouTube IFrame API for smoother looping autoplay ---
-    (function loadYT() {
-      var tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.head.appendChild(tag);
-    })();
-
-    let ytPlayer;
-    function onYouTubeIframeAPIReady() {
-      ytPlayer = new YT.Player('yt-inline', {
-        videoId: 'bvBdAwXArkI',
-        playerVars: {
-          autoplay: 1,
-          mute: 1,
-          loop: 1,
-          playlist: 'bvBdAwXArkI',
-          controls: 0,
-          modestbranding: 1,
-          rel: 0,
-          fs: 0,
-          playsinline: 1,
-          iv_load_policy: 3,
-          cc_load_policy: 0
-        },
-        events: {
-          onReady: function (e) { e.target.playVideo(); },
-          onStateChange: function (e) {
-            if (e.data === YT.PlayerState.ENDED) {
-              e.target.seekTo(0.001, true);
-              e.target.playVideo();
-            }
-          }
-        }
-      });
-    }
-
-    // Extra smoothing: jump just before the end to avoid the tiny pause
-    const LOOP_SAFETY = 0.15; // seconds before the end to jump
-    setInterval(() => {
-      if (!ytPlayer || typeof ytPlayer.getCurrentTime !== 'function') return;
-      const dur = ytPlayer.getDuration ? ytPlayer.getDuration() : 0;
-      const t = ytPlayer.getCurrentTime ? ytPlayer.getCurrentTime() : 0;
-      if (dur && t > 0 && (dur - t) < LOOP_SAFETY) {
-        ytPlayer.seekTo(0.001, true);
-      }
-    }, 100);
   </script>
 </body>
 </html>
