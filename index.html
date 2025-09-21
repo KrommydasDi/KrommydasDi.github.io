@@ -77,6 +77,10 @@
         <div>
           <h1>Dimitrios Krommydas</h1>
           <p class="subtitle">NWO Rubicon Grant Recipient & Postdoctoral Researcher - UCSB</p>
+          <!-- Email line (spam-light) -->
+          <p class="subtitle" id="email-line">
+            <noscript>email: dimitris [at] ucsb [dot] edu</noscript>
+          </p>
         </div>
         <div>
           <img src="Dimitris.jpeg" alt="Dimitrios Krommydas">
@@ -170,6 +174,19 @@
   <script>
     // Year stamp
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Email builder (spam-light): builds a mailto link at runtime
+    (function () {
+      var u = 'dimitris', d = 'ucsb', t = 'edu';
+      var slot = document.getElementById('email-line');
+      if (!slot) return;
+      var a = document.createElement('a');
+      a.href = 'mailto:' + u + '@' + d + '.' + t;
+      a.textContent = u + ' [at] ' + d + ' [dot] ' + t;
+      a.rel = 'nofollow';
+      slot.textContent = '';
+      slot.appendChild(a);
+    })();
   </script>
 </body>
 </html>
