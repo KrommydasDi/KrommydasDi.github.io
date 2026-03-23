@@ -26,18 +26,90 @@ img{max-width:100%; height:auto; border-radius:10px; display:block}
 .video iframe,.video video{position:absolute; inset:0; width:100%; height:100%; border:0}
 
 /* Awards layout */
-.awards-list { list-style:none; padding-left:0; margin:0; }
-.awards-list li{
-  display:grid; grid-template-columns:1fr auto; align-items:center; gap:14px;
-  padding:14px 16px; margin:14px 0; border:1px solid #222; border-radius:12px; background:#070707;
+.awards-list{
+  list-style:none;
+  padding-left:0;
+  margin:0;
 }
-.award-thumb{ width:5em; height:auto; max-width:none; border:1px solid #222; border-radius:6px; }
-.award-thumb--large{ width:15em; }          /* 3× */
-.award-thumb--medium{ width:7.5em; }        /* 1.5× */
-@media (max-width:480px){
-  .award-thumb{ width:4em; }
-  .award-thumb--large{ width:8em; }
-  .award-thumb--medium{ width:6em; }
+
+.awards-list li{
+  display:grid;
+  grid-template-columns: 1fr 320px;
+  align-items:center;
+  gap:24px;
+  padding:18px 20px;
+  margin:18px 0;
+  border:1px solid #222;
+  border-radius:12px;
+  background:#070707;
+}
+
+.award-text{
+  min-width:0;
+}
+
+.award-media{
+  width:320px;
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.award-thumb{
+  max-width:100%;
+  max-height:100%;
+  width:auto;
+  height:auto;
+  object-fit:contain;
+  border:1px solid #222;
+  border-radius:6px;
+  background:#111;
+}
+
+/* Portrait covers */
+.award-thumb--cover{
+  height:220px;
+  width:auto;
+}
+
+/* LION image */
+.award-thumb--lion{
+  width:280px;
+  height:auto;
+}
+
+/* Very wide DSNP logo */
+.award-thumb--logo-wide{
+  width:300px;
+  height:auto;
+}
+
+/* Tall narrow NWO logo */
+.award-thumb--logo-tall{
+  height:190px;
+  width:auto;
+}
+
+@media (max-width:800px){
+  .awards-list li{
+    grid-template-columns:1fr;
+  }
+
+  .award-media{
+    width:100%;
+    height:auto;
+    min-height:0;
+    justify-content:flex-start;
+  }
+
+  .award-thumb--cover,
+  .award-thumb--lion,
+  .award-thumb--logo-wide,
+  .award-thumb--logo-tall{
+    max-width:260px;
+    height:auto;
+  }
 }
 
 /* Publications spacing (used on publications.html) */
