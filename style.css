@@ -115,3 +115,76 @@ img{max-width:100%; height:auto; border-radius:10px; display:block}
 /* Publications spacing (used on publications.html) */
 .pub-list li{ margin-bottom:2em; }
 .pub-list li:last-child{ margin-bottom:0; }
+
+/* Header profile links */
+.profile-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+}
+
+.profile-links img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+.profile-links .ucsb-link {
+  height: 24px;
+  padding: 0 7px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.profile-links .ucsb-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+
+
+.profile-links a[title="GitHub"] img {
+  filter: brightness(0) invert(1);
+}
+
+.profile-links a[title="GitHub"] img {
+  filter: brightness(0) invert(1);
+}
+
+.profile-links a[title="GitHub"] img {
+  filter: brightness(0) invert(1);
+}
+EOFa
+cat >> style.css <<'EOF'
+
+.profile-links a[title="GitHub"] img {
+  filter: brightness(0) invert(1);
+}
+
+.header-flex > .profile-links {
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.header-right .profile-links {
+  flex-direction: column;
+  margin: 0;
+  gap: 8px;
+}
